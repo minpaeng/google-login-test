@@ -41,9 +41,6 @@ public class GoogleLoginTest extends AppCompatActivity implements View.OnClickLi
         findViewById(R.id.button).setOnClickListener(this);
         findViewById(R.id.button2).setOnClickListener(this);
 
-        //clientID 검증
-        validateServerClientID();
-
         //서버 클라이언트 아이디
         String serverClientId = getString(R.string.server_client_id);
 
@@ -156,17 +153,6 @@ public class GoogleLoginTest extends AppCompatActivity implements View.OnClickLi
 
             findViewById(R.id.button).setVisibility(View.VISIBLE);
             findViewById(R.id.button2).setVisibility(View.GONE);
-        }
-    }
-
-    private void validateServerClientID() {
-        String serverClientId = getString(R.string.front_server_client_id);
-        String suffix = ".apps.googleusercontent.com";
-        if (!serverClientId.trim().endsWith(suffix)) {
-            String message = "Invalid server client ID in strings.xml, must end with " + suffix;
-
-            Log.w(TAG, message);
-            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         }
     }
 
